@@ -31,7 +31,7 @@ class SeriesManager():
     def _enter_points_from_file(self, filename):
         file = open(filename, "r")
         self.n = int(file.readline())
-        if self.n < 5 or self.n > 12:
+        if self.n < 8 or self.n > 12:
             print("Необходимо ввести не менее 8 и не более 12 точек.")
             raise ValueError
         for i in range(self.n):

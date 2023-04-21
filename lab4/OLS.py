@@ -43,6 +43,7 @@ class Function:
                 return False
         return True
 
+
 class LinearFunction(Function):
     def __init__(self, series):
         self.broken_flag = False
@@ -212,12 +213,12 @@ class ExponentialFunction(Function):
         epsilon_list = self.get_epsilon_list(p)
         self.mse = sum([e ** 2 for e in epsilon_list]) / self.series.n
         result = \
-            f"""    Формула функции: phi(x) = a * exp(bx)
-            Коэффициенты: a={round(a, 4)}, b={round(b, 4)}
-            Значение функции в точках: {p.round(4)}
-            Отклонения: {epsilon_list.round(4)}
-            Сумма отклонений: {round(sum(epsilon_list), 4)}
-            Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}
+    f"""    Формула функции: phi(x) = a * exp(bx)
+    Коэффициенты: a={round(a, 4)}, b={round(b, 4)}
+    Значение функции в точках: {p.round(4)}
+    Отклонения: {epsilon_list.round(4)}
+    Сумма отклонений: {round(sum(epsilon_list), 4)}
+    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}
         """
         return result
 
@@ -253,10 +254,10 @@ class LogarithmicFunction(Function):
         self.mse = sum([e ** 2 for e in epsilon_list]) / self.series.n
         result = \
             f"""    Формула функции: phi(x) = a * ln(x) + b
-            Значение функции в точках: {p.round(4)}
-            Отклонения: {epsilon_list.round(4)}
-            Сумма отклонений: {round(sum(epsilon_list), 4)}
-            Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}
+    Значение функции в точках: {p.round(4)}
+    Отклонения: {epsilon_list.round(4)}
+    Сумма отклонений: {round(sum(epsilon_list), 4)}
+    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}
         """
         return result
 
@@ -298,5 +299,5 @@ class PowerFunction(Function):
     Отклонения: {epsilon_list.round(4)}
     Сумма отклонений: {round(sum(epsilon_list), 4)}
     Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}
-        """
+"""
         return result
