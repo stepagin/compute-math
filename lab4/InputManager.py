@@ -1,4 +1,3 @@
-import numpy as np
 class InputManager:
     @staticmethod
     def string_input(message=""):
@@ -41,7 +40,8 @@ class InputManager:
         return answer[0].lower() in ["y", "д"]
 
     @staticmethod
-    def enum_input(variants_list, message):
+    def enum_input(variants_list, message=""):
+        variants_list = [str(i) for i in variants_list]
         buf = ""
         while buf not in variants_list:
             buf = InputManager.string_input(message)
@@ -63,8 +63,8 @@ class InputManager:
             for line in lines[1:]:
                 print("\t" + ' ' * len(s), line)
 
-        i = int(InputManager.enum_input([str(i) for i in range(1, n + 1)], f"Введите число от 1 до {n}: ")) - 1
-        return values_list[i]
+        i = int(InputManager.enum_input([*range(1, n + 1)], f"Введите число от 1 до {n}: "))
+        return values_list[i - 1]
 
     @staticmethod
     def epsilon_input(message=""):
@@ -74,3 +74,21 @@ class InputManager:
             e = InputManager.float_input(message)
         return e
 
+    @staticmethod
+    def int_input_with_borders(left, right, message=""):
+        if left >= right:
+            raise ValueError
+        if message != "":
+            print(message)
+        i = int(InputManager.enum_input([*range(left, right + 1)], f"Введите число от {left} до {right}: "))
+        return i
+
+    @staticmethod
+    def point_input(message=""):
+        x, y = None, None
+        while x is None or y is None:
+            line = InputManager.string_input(message).split()
+            if len(line) != 2:
+                continue
+            x, y = InputManager._convert_to_number(line[0]), InputManager._convert_to_number(line[1])
+        return x, y

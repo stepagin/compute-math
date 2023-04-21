@@ -1,3 +1,5 @@
+from random import random
+
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -11,6 +13,7 @@ class Integral:
         self.steps = 0
         self.left = None
         self.right = None
+        self.iterations = 0
 
     def calculate(self, x):
         return self.func(x)
@@ -21,12 +24,17 @@ class Integral:
     def solve(self, left, right, method_func):
         self.left = left
         self.right = right
-        steps = 4
-        epsilon = InputManager.epsilon_input("Введите epsilon: ")
-        while abs(method_func(self, left, right, steps) - method_func(self, left, right, steps * 2)) > epsilon:
-            steps *= 2
-        self.set_steps(steps)
-        return round(method_func(self, left, right, steps), len(str(int(1 / epsilon))))
+        try:
+            steps = 4
+            epsilon = InputManager.epsilon_input("Введите epsilon: ")
+            while abs(method_func(self, left, right, steps / 2) - method_func(self, left, right, steps)) > epsilon \
+                    and self.iterations < 19:
+                steps *= 2
+                self.iterations += 1
+            self.set_steps(steps)
+            return round(method_func(self, left, right, steps), len(str(int(1 / epsilon))))
+        except Exception:
+            return None
 
     def draw_func(self, left=None, right=None):
         if left is None or right is None:
@@ -35,7 +43,7 @@ class Integral:
             else:
                 left = self.left
                 right = self.right
-        x_axis = np.linspace(min(left, right), max(left, right), 32)
+        x_axis = np.linspace(min(left, right), max(left, right), 100)
         plt.plot(x_axis, self.calculate(x_axis))
         plt.grid(True, which='both')
         plt.axvline(x=0, color='k')

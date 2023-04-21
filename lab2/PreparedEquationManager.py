@@ -104,6 +104,7 @@ class PreparedEquation:
         return x
 
     def Newtons_Method(self):
+        left, right = self._enter_root_isolation()
         x = InputManager.float_input("Введите начальное приближение: ")
 
         epsilon = 10 ** (-8)

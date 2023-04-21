@@ -58,6 +58,3 @@ class Equation:
         expression = expression.replace(")(", ")*(")
         # print(expression)
         return eval(expression)
-
-
-
