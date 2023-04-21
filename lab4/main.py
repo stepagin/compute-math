@@ -56,7 +56,7 @@ if __name__ == '__main__':
     if InputManager.yes_or_no_input("Сохранить результаты в файл?"):
         try:
             filename = InputManager.string_input("Введите имя файла: ")
-            with open(filename, "w") as f:
+            with open(filename, "w", encoding='utf-8') as f:
                 f.write(output_result)
                 f.flush()
         except Exception:
