@@ -103,8 +103,7 @@ class LinearFunction(Function):
     Коэффициенты: [{round(a, 4)} {round(b, 4)}]
     Среднеквадратичное отклонение: {np.sqrt(round(self.mse, 4))}
     Коэффициент корреляции: {round(r, 2)}
-    Линейная зависимость: {self.define_linear_relationship(r)}
-"""
+    Линейная зависимость: {self.define_linear_relationship(r)}\n"""
         return result
 
 
@@ -139,8 +138,7 @@ class PolynomialFunction2ndDegree(Function):
     Значение функции в точках: {p.round(4)}
     Отклонения: {epsilon_list.round(4)}
     Сумма отклонений: {round(sum(epsilon_list), 4)}
-    Среднеквадратичное отклонение: {np.sqrt(round(self.mse, 4))}
-"""
+    Среднеквадратичное отклонение: {np.sqrt(round(self.mse, 4))}\n"""
         return result
 
 
@@ -176,8 +174,7 @@ class PolynomialFunction3rdDegree(Function):
     Значение функции в точках: {p.round(4)}
     Отклонения: {epsilon_list.round(4)}
     Сумма отклонений: {round(sum(epsilon_list), 4)}
-    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}
-"""
+    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}\n"""
         return result
 
 
@@ -218,8 +215,7 @@ class ExponentialFunction(Function):
     Значение функции в точках: {p.round(4)}
     Отклонения: {epsilon_list.round(4)}
     Сумма отклонений: {round(sum(epsilon_list), 4)}
-    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}
-        """
+    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}\n"""
         return result
 
 
@@ -257,8 +253,7 @@ class LogarithmicFunction(Function):
     Значение функции в точках: {p.round(4)}
     Отклонения: {epsilon_list.round(4)}
     Сумма отклонений: {round(sum(epsilon_list), 4)}
-    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}
-        """
+    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}\n"""
         return result
 
 
@@ -298,6 +293,5 @@ class PowerFunction(Function):
     Значение функции в точках: {p.round(4)}
     Отклонения: {epsilon_list.round(4)}
     Сумма отклонений: {round(sum(epsilon_list), 4)}
-    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}
-"""
+    Среднеквадратичное отклонение: {round(np.sqrt(self.mse), 4)}\n"""
         return result
