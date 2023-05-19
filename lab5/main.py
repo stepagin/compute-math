@@ -16,6 +16,7 @@ def sort_and_delete_dublicates(points):
     i = 1
     while i < len(points):
         if points[i][0] == points[i - 1][0]:
+            points[i - 1] = (points[i - 1][0], (points[i - 1][1] + points[i][1]) / 2)
             points.pop(i)
         else:
             i += 1
