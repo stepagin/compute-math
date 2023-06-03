@@ -210,7 +210,7 @@ class ExponentialFunction(Function):
         epsilon_list = self.get_epsilon_list(p)
         self.mse = sum([e ** 2 for e in epsilon_list]) / self.series.n
         result = \
-    f"""    Формула функции: phi(x) = a * exp(bx)
+            f"""    Формула функции: phi(x) = a * exp(bx)
     Коэффициенты: a={round(a, 4)}, b={round(b, 4)}
     Значение функции в точках: {p.round(4)}
     Отклонения: {epsilon_list.round(4)}

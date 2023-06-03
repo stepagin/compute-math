@@ -1,5 +1,4 @@
 from InputManager import InputManager
-from series import SeriesManager
 from OLS import *
 
 output_result = ""
@@ -61,4 +60,3 @@ if __name__ == '__main__':
                 f.flush()
         except Exception:
             print("Не удалось сохранить результаты в файл.")
-
