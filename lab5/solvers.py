@@ -133,13 +133,15 @@ class Gaussian(Solver):
             self.draw_graphics("Интерполяционный многочлен Гаусса")
 
         if InputManager.yes_or_no_input("Хотите узнать значение функции в конкретной точке?"):
-            x = InputManager.float_input_with_borders(self.points_x[0], self.points_x[-1], "Введите координату x точки: ")
+            x = InputManager.float_input_with_borders(self.points_x[0], self.points_x[-1],
+                                                      "Введите координату x точки: ")
             t = (x - center_of_section) / h
             print("Значение функции в точке x:", self.f(x))
 
             # погрешность считается по формуле из лекции
             print("Оценка погрешности:", abs(self.calculate_gaussian_delta_y(self.n - 1, -(self.n // 2)) * multiply(
                 [(t - i) for i in range(self.n // 2)]) / math.factorial(self.n // 2 + 1)))
+
 
 class StirlingAndBessel(Solver):
     def solve(self):
@@ -171,4 +173,3 @@ class PreparedFunctionSolver:
         ax.grid(True)
         plt.title("Результат интерполяции:")
         plt.show()
-

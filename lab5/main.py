@@ -11,6 +11,7 @@ def stop_program():
     global working_flag
     working_flag = False
 
+
 def sort_and_delete_dublicates(points):
     points.sort()
     i = 1
@@ -21,6 +22,7 @@ def sort_and_delete_dublicates(points):
         else:
             i += 1
     return points
+
 
 def enter_points():
     global points
@@ -118,7 +120,6 @@ def prepared_function_solver():
     solver.solve(draw_graphic=False)
 
     chosen_variant.draw_two_graphics(solver.f, points)
-
 
 
 def stirling_and_bessel_solver():
